@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Installation and uninstallation functions.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function payment_postfinance_schema() {
+  $schema['payment_postfinance_payment_method'] = array(
+    'fields' => array(
+      'pmid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'pspid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'currency_code' => array(
+        'type' => 'varchar',
+        'length' => 3,
+        'not null' => TRUE,
+      ),
+      'language' => array(
+        'type' => 'varchar',
+        'length' => 5,
+        'not null' => TRUE,
+      ),
+      'server' => array(
+        'type' => 'varchar',
+        'length' => 5,
+        'not null' => TRUE,
+      ),
+      'server_encoding' => array(
+        'type' => 'varchar',
+        'length' => 3,
+        'not null' => TRUE,
+      ),
+      'payment_security' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'payment_security_key' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'reply_security_key' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'shop_uri' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'cancel_uri' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'order_prefix' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'template_page' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'bgcolor' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'txtcolor' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'logo' => array(
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+    ),
+    'primary key' => array('pmid'),
+    'unique keys' => array(
+      'pmid' => array('pmid'),
+    ),
+  );
+
+  return $schema;
+}
